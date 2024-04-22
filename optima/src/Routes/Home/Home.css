@@ -1,0 +1,22 @@
+.outlet {
+    width: 90vw;
+    height: 90vh;
+    border: 5px;
+    background: orange;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: rgb(0, 0, 0);
+    height: 7vh;
+    padding: 1 5px;
+
+
+    li {
+        list-style: none;
+
+    }
+
+}

@@ -1,6 +1,41 @@
 import { useState } from 'react'
+import Home from './Routes/Home/Home';
+import Linear from './Routes/Linear/Linear';
+import NonLinear from './Routes/NonLinear/NonLinear';
+import Discrete from './Routes/Discrete/Discrete';
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
 
 import './App.css'
+
+function Routes() {
+  const router = createBrowserRouter(
+    [
+      {
+        path: '/',
+        element: <Home />,
+        children: [
+          {
+            path: '/linear',
+            element: <Linear />
+          },
+          {
+            path: '/non-linear',
+            element: <NonLinear />
+          },
+          {
+            path: '/discrete',
+            element: <Discrete />
+          }
+        ]
+      }
+    ]
+  )
+  return (
+    <>
+      <RouterProvider router={router} />
+    </>
+  )
+}
 
 function App() {
 
@@ -9,16 +44,7 @@ function App() {
     <>
 
       <h1>This is Optima</h1>
-      <div className="card">
-        <h2> in this app user can do the following:</h2>
-        <ul>
-          <li>Assign cost and profit equations</li>
-          <li>Get optima points</li>
-          <li>Displays a full 3d or 2d resulting objective equation plotting</li>
-          <li>Displays live animation of particle swarms optimization action</li>
-        </ul>
-
-      </div>
+      <Routes />
 
     </>
   )
